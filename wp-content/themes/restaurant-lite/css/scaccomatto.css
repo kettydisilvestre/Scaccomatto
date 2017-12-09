@@ -1,0 +1,172 @@
+.logo{padding:28px;}
+.sm_slider{
+	position: relative;
+}
+.sm_sliderimage{
+	height: 100vh;
+	width: 100vw;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.sm_slider .sm_slider_item_inner{
+	position: relative;
+}
+
+.sm_slider .sm_slider_item_inner .sm_slider_infos{
+	position: absolute;
+	top : 40%;
+	left : 15vw;
+	background-color: rgba(0,0,0,0.35);
+	min-width: 25vw;
+	max-width: 50vw;
+	max-height: 65vh;
+	padding: 25px 20px;
+	overflow: hidden;
+}
+
+@media only screen and (max-width: 767px){
+	.sm_slider .sm_slider_item_inner .sm_slider_infos{
+		max-width: 96vw;
+		width: 96vw;
+		left: 2vw;
+		text-align: center;
+		bottom: 50px;
+		top : auto;
+	}
+}
+
+.sm_slider .sm_slider_item_inner .sm_slide_solo_title_bg{
+	position: absolute;
+	top 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0,0,0,0.15);
+}
+.sm_slider .sm_slider_item_inner .sm_slide_solo_title{
+	position: absolute;
+	width : 100vw;
+	font-size: 60px;
+	line-height: 64px;
+	height: 34px;
+	top : calc(50vh - 32px );
+	font-family: 'Playball', sans-serif;
+	text-align: center;
+	color : #ffa200;
+}
+.sm_slider .sm_slider_item_inner .sm_slider_infos .sm_slider_infos_title{
+	font-size: 30px;
+	line-height: 34px;
+	max-height: 68px;
+	color : #ffa200;
+	font-family: 'Playball', sans-serif;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.sm_slider .sm_slider_item_inner .sm_slider_infos .sm_slider_infos_subtitle{
+	font-size: 20px;
+	line-height: 22px;
+	color : #fff;
+	overflow: hidden;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 100;
+}
+.sm_slider .slick-dots{
+	position: absolute;
+	margin: 0 auto;
+	bottom: 20px;
+}
+.sm_slider .slick-dots li.slick-active button:before{
+	color :#ffa200;
+}
+
+.sm_slider .slick-dots li button:before{
+	font-size: 10px;
+}
+
+.sm_slider .slick-prev, .slick-next{z-index: 999;}
+.sm_slider .slick-prev:before, .slick-next:before{font-size: 30px; color :#ffa200;}
+.sm_slider .slick-prev{left :40px;}
+.sm_slider .slick-next{right :40px;}
+
+
+/* BLOCCHI SPECIALI */
+.blocchi_speciali_container{
+	width: 90vw;
+	margin: 0 auto;	
+}
+#wrapsecond{
+	background-color: rgba(255,162,0,0.1);
+}
+.blocco_speciale_img{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
+.blocchi_speciali .services-wrap .one_third{
+	height: 280px;
+}
+
+/* ORARI */
+
+.sm_orari{
+	padding: 45px 35px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.sm_orari .time_table{
+	margin: 0 auto;
+	background-color: rgba(255,162,0,0.75);
+	color: #fff;
+	font-size: 20px;
+	font-family: 'Roboto Condensed', sans-serif;
+	width : 500px;
+	padding : 10px 0px;
+}
+@media only screen and (max-width: 767px){
+	.sm_orari .time_table{
+		width: 95%;
+	}
+}
+
+.sm_orari .time_table .start_time{
+	font-weight: 100;
+}
+
+.sm_orari .time_row:not(:last-child){
+	padding-bottom: 5px;
+	margin:0;
+}
+.sm_orari .time_row:not(:first-child){
+	padding-top: 5px;
+}
+.sm_orari .time_row:not(:last-child){
+	border-bottom : 1px solid #ffcc00;
+}
+
+.sm_orari .sm_orari_title{
+	font-family: 'Playball', sans-serif;
+	font-size: 40px;
+	line-height: 40px;
+	color : #fff;
+	text-align: center;
+	letter-spacing: 3px;
+	margin-bottom: 32px;
+}
+
+.sm_orari .sm_orari_day{
+	font-family: 'Playball', sans-serif;
+	font-size: 25px;
+}
+.sm_orari .sm_orari_h{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 100;
+	line-height: 35px;
+}

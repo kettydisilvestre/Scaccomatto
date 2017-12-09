@@ -63,13 +63,6 @@
             <div class="clear"></div>
         </div><!--end .container-->
         
-        <div class="copyright-wrapper">
-        	<div class="container">
-            	<div class="copyright-txt"><?php echo restaurant_credit(); ?></div>
-                <div class="design-by"><?php echo restaurant_themebytext(); ?></div>
-            </div>
-            <div class="clear"></div>
-        </div>
     </div>
 <?php wp_footer(); ?>
 

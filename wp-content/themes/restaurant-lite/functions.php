@@ -7,17 +7,17 @@
 
 // Set the word limit of post content 
 function restaurant_content($limit) {
-$content = explode(' ', get_the_content(), $limit);
-if (count($content)>=$limit) {
-array_pop($content);
-$content = implode(" ",$content).'...';
-} else {
-$content = implode(" ",$content);
-}	
-$content = preg_replace('/\[.+\]/','', $content);
-$content = apply_filters('the_content', $content);
-$content = str_replace(']]>', ']]&gt;', $content);
-return $content;
+	$content = explode(' ', get_the_content(), $limit);
+	if (count($content)>=$limit) {
+		array_pop($content);
+		$content = implode(" ",$content).'...';
+	} else {
+		$content = implode(" ",$content);
+	}	
+	$content = preg_replace('/\[.+\]/','', $content);
+	$content = apply_filters('the_content', $content);
+	$content = str_replace(']]>', ']]&gt;', $content);
+	return $content;
 }
 
 /**
@@ -72,8 +72,8 @@ add_action( 'widgets_init', 'restaurant_widgets_init' );
 
 
 function restaurant_font_url(){
-		$font_url = '';		
-		
+	$font_url = '';		
+
 		/* Translators: If there are any character that are not
 		* supported by Roboto Condensed, trsnalate this to off, do not
 		* translate into your own language.
@@ -102,7 +102,7 @@ function restaurant_font_url(){
 			if('off' !== $playball){
 				$font_family[] = 'Playball:400';
 			}			
-						
+
 			$query_args = array(
 				'family'	=> urlencode(implode('|',$font_family)),
 			);
@@ -110,30 +110,30 @@ function restaurant_font_url(){
 			$font_url = add_query_arg($query_args,'//fonts.googleapis.com/css');
 		}
 		
-	return $font_url;
+		return $font_url;
 	}
 
 
-function restaurant_scripts() {
-	wp_enqueue_style('restaurant-font', restaurant_font_url(), array());
-	wp_enqueue_style( 'restaurant-basic-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'restaurant-editor-style', get_template_directory_uri()."/editor-style.css" );
-	wp_enqueue_style( 'restaurant-nivoslider-style', get_template_directory_uri()."/css/nivo-slider.css" );
-	wp_enqueue_style( 'restaurant-main-style', get_template_directory_uri()."/css/responsive.css" );		
-	wp_enqueue_style( 'restaurant-base-style', get_template_directory_uri()."/css/style_base.css" );
-	wp_enqueue_script( 'restaurant-nivo-script', get_template_directory_uri() . '/js/jquery.nivo.slider.js', array('jquery') );
-	wp_enqueue_script( 'restaurant-custom_js', get_template_directory_uri() . '/js/custom.js' );
-	wp_enqueue_style( 'restaurant-animation-style', get_template_directory_uri()."/css/animation.css" );	
+	function restaurant_scripts() {
+		wp_enqueue_style('restaurant-font', restaurant_font_url(), array());
+		wp_enqueue_style( 'restaurant-basic-style', get_stylesheet_uri() );
+		wp_enqueue_style( 'restaurant-editor-style', get_template_directory_uri()."/editor-style.css" );
+		wp_enqueue_style( 'restaurant-nivoslider-style', get_template_directory_uri()."/css/nivo-slider.css" );
+		wp_enqueue_style( 'restaurant-main-style', get_template_directory_uri()."/css/responsive.css" );		
+		wp_enqueue_style( 'restaurant-base-style', get_template_directory_uri()."/css/style_base.css" );
+		wp_enqueue_script( 'restaurant-nivo-script', get_template_directory_uri() . '/js/jquery.nivo.slider.js', array('jquery') );
+		wp_enqueue_script( 'restaurant-custom_js', get_template_directory_uri() . '/js/custom.js' );
+		wp_enqueue_style( 'restaurant-animation-style', get_template_directory_uri()."/css/animation.css" );	
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
 	}
-}
-add_action( 'wp_enqueue_scripts', 'restaurant_scripts' );
+	add_action( 'wp_enqueue_scripts', 'restaurant_scripts' );
 
-function restaurant_ie_stylesheet(){
-	global $wp_styles;
-	
+	function restaurant_ie_stylesheet(){
+		global $wp_styles;
+
 	/** Load our IE-only stylesheet for all versions of IE.
 	*   <!--[if lt IE 9]> ... <![endif]-->
 	*
@@ -144,7 +144,7 @@ function restaurant_ie_stylesheet(){
 	*/
 	wp_enqueue_style('restaurant-ie', get_template_directory_uri().'/css/ie.css', array('restaurant-style'));
 	$wp_styles->add_data('restaurant-ie','conditional','IE');
-	}
+}
 add_action('wp_enqueue_scripts','restaurant_ie_stylesheet');
 
 
@@ -152,11 +152,11 @@ function restaurant_pagination() {
 	global $wp_query;
 	$big = 12345678;
 	$page_format = paginate_links( array(
-	    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-	    'format' => '?paged=%#%',
-	    'current' => max( 1, get_query_var('paged') ),
-	    'total' => $wp_query->max_num_pages,
-	    'type'  => 'array'
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages,
+		'type'  => 'array'
 	) );
 	if( is_array($page_format) ) {
 		$paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
@@ -181,10 +181,10 @@ define('SKT_THEME_FEATURED_SET_VIDEO_URL','https://www.youtube.com/watch?v=310YG
 
 
 function restaurant_credit(){
-		return "&copy; 2015 <a href=".home_url('/').">SKT Restaurant & Cafe</a>. All Rights Reserved";		
+	return "&copy; 2015 <a href=".home_url('/').">SKT Restaurant & Cafe</a>. All Rights Reserved";		
 }
 function restaurant_themebytext(){
-		return "Theme by <a href=".esc_url(SKT_URL)." target='_blank'>SKT Themes</a>";
+	return "Theme by <a href=".esc_url(SKT_URL)." target='_blank'>SKT Themes</a>";
 }
 /**
  * Implement the Custom Header feature.
@@ -245,3 +245,18 @@ function restaurant_get_slug_by_id($id) {
 	$slug = $post_data['post_name'];
 	return $slug; 
 }
+
+
+
+
+/*SCACCO MATTO CUSTOMS */
+
+function scacco_scripts() {
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri()."/css/bootstrap.css" );
+	wp_enqueue_style( 'scacco-slick', get_template_directory_uri()."/js/sm_js/slick/slick/slick.css" );
+	wp_enqueue_style( 'scacco-slick-theme', get_template_directory_uri()."/js/sm_js/slick/slick/slick-theme.css" );
+	wp_enqueue_script( 'scacco-slick', get_template_directory_uri()."/js/sm_js/slick/slick/slick.min.js", array('jquery'));
+	wp_enqueue_style( 'scacco-style', get_template_directory_uri()."/css/scaccomatto.css" );
+	wp_enqueue_script( 'scacco-script', get_template_directory_uri()."/js/sm_js/sm.js" ,array('jquery','scacco-slick'));
+}
+add_action( 'wp_enqueue_scripts', 'scacco_scripts' );
